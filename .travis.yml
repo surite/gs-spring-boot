@@ -9,6 +9,6 @@ jobs:
         - pwd
         - cd initial
         - ./gradlew build
-        - java -jar target/gs-spring-boot-0.1.0.jar
+        - java -jar build/libs/gs-spring-boot-0.1.0.jar
     - stage: auto test
       script: pwd & ../test/run.sh
