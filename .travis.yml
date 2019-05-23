@@ -5,6 +5,9 @@ jdk:
 jobs:
   include:
     - stage: unit test
-      script: pwd & cd initial & ./gradlew build & java -jar target/gs-spring-boot-0.1.0.jar
+      script:
+        - pwd
+        - cd initial
+        - ./gradlew build & java -jar target/gs-spring-boot-0.1.0.jar
     - stage: auto test
       script: pwd & ../test/run.sh
