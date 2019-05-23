@@ -10,8 +10,6 @@ jobs:
       script:
         - cd initial
         - ./gradlew build
-    - stage: auto test
-      script:
         - cp initial/build/libs/*.jar test/gs-spring-boot.jar
         - cd test
         - docker build -t spring .
