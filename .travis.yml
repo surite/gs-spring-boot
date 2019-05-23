@@ -10,7 +10,7 @@ jobs:
       script:
         - cd initial
         - ./gradlew build
-    - stage: unit test
+    - stage: auto test
       script:
         - cp initial/build/libs/*.jar test/gs-spring-boot.jar
         - cd test
