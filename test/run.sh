@@ -1,3 +1,3 @@
 #!/bin/sh
 
-curl http://localhost:8080
+echo | curl http://$1:$2

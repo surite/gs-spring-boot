@@ -2,11 +2,20 @@ sudo: false
 language: java
 jdk:
 - oraclejdk8
+service:
+- docker
 jobs:
   include:
     - stage: unit test
       script:
         - cd initial
         - ./gradlew build
-        - java -jar build/libs/gs-spring-boot-0.1.0.jar & sleep 10
-        - ../test/run.sh
+    - stage: unit test
+      script:
+        - cp initial/build/libs/*.jar test/gs-spring-boot.jar
+        - cd test
+        - docker build -t spring .
+        - docker run -d -p 127.0.0.1:8090:8080 spring
+        - docker ps
+        - sleep 20
+        - ./run.sh '127.0.0.1' '8090'
